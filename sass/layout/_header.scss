@@ -1,0 +1,38 @@
+.header {
+  height: 95vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  /* Now the absolute positioning of the logo-box is referencing to that element */
+  position: relative;
+  /* For custom clip-paths visit clippy */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+  @include respond(phone) {
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 90%);
+  }
+
+  //Nesting (this is like header__logo)
+  &__logo {
+    position: absolute;
+    height: 3.5rem;
+    top: 3rem;
+    left: 3rem;
+  }
+
+  &__text-box {
+    position: absolute;
+    /* top, left in relation to the parent element */
+    top: 40%;
+    left: 50%;
+    text-align: center;
+
+    /* This moves the element in the x and y axis by half of its own size */
+    transform: translate(-50%, -50%);
+  }
+}

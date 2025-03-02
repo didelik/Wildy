@@ -1,0 +1,42 @@
+*,
+*::after,
+::before {
+  margin: 0;
+  padding: 0;
+  /* force inheritance */
+  box-sizing: inherit;
+}
+
+html {
+  /* root font size.We set it as a percentage to not overwrite the browser default and the ability of the user to manually change the font-size.In this case it's 62.5% of the browser's default 16px */
+
+  font-size: 62.5%; // 1rem = 10px
+
+  @include respond(tab-land) {
+    //width < 900
+    font-size: 56.25%; //1rem = 9px , 9/16 = 50%
+  }
+
+  @include respond(tablet-port) {
+    //width < 600
+    font-size: 50%; //1rem = 8px , 8/16 = 50%
+  }
+
+  @include respond(phone) {
+    //width < 400
+    font-size: 30%; //1rem = 9px , 9/16 = 50%
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%; //1rem  = 12 , 12/16
+  }
+}
+
+body {
+  box-sizing: border-box;
+  padding: 3rem;
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
+}
